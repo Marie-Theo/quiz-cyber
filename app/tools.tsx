@@ -36,35 +36,24 @@ export function element_menu(page:string, pages:string) {
     );
 }
 
-export function menu(pages:string) {
+export function menu(pages:string,Joueur:any) {
     return (
           <NavigationMenu>
             <NavigationMenuList className="flex-wrap">
               <NavigationMenuItem className='space-x-3'>
 
-
                 {element_menu('Questionnaire',pages)}
 
-                <NavigationMenuLink asChild className={pages === 'classement' ? 'font-bold underline' : ''} onClick={() => changePages('classement')}>
-                  <Label className={navigationMenuTriggerStyle()}>
-                  Classement
-                  </Label>
-                </NavigationMenuLink>
+                {element_menu('Classement',pages)}
                 
-                <NavigationMenuLink asChild className={pages === 'profil' ? 'font-bold underline' : ''} onClick={() => changePages('profil')}>
-                  <Label className={navigationMenuTriggerStyle()}>
-                  Profil
-                  </Label>
-                </NavigationMenuLink>
+                {element_menu('Profil',pages)}
                 
                 {Joueur.map((entry) => (
-                  <NavigationMenuLink asChild className={pages === 'Admin' ? 'font-bold underline' : ''} onClick={() => changePages('Admin')}>
+                  <div>
                     {entry.Administrateur == true ?(
-                      <Label className={navigationMenuTriggerStyle()}>
-                      Admin
-                      </Label>
-                    ):null}
-                    </NavigationMenuLink>
+                      element_menu('Admin',pages)
+                      ):null}
+                    </div>
                   ))
                 }
 
