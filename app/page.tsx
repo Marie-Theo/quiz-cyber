@@ -5,10 +5,11 @@ import { supabase } from '../lib/supabaseClient';
 import Image from 'next/image';
 import Link from "next/link";
 import moment from 'moment'
-import {chargement} from './tools';
 
 // Components
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Spinner } from "@/components/ui/spinner"
+import {Empty,EmptyDescription,EmptyHeader,EmptyMedia,EmptyTitle,} from "@/components/ui/empty"
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -46,6 +47,25 @@ export default function Home() {
     setPages(page);
   }
 
+  function chargement(section: string) {
+    return (
+      <section id="chargement-section">
+        <Card className="max-w-4xl mx-auto mt-10">
+          <Empty className="w-full">
+            <EmptyHeader>
+              <EmptyMedia variant="icon">
+                <Spinner />
+              </EmptyMedia>
+              <EmptyTitle>Chargement du {section}...</EmptyTitle>
+              <EmptyDescription>
+                Le Chargement peut durer un certain temps.
+              </EmptyDescription>
+            </EmptyHeader>
+          </Empty>
+        </Card>
+      </section>
+    );
+  }
   async function sha256(message: string) {
     // encode as UTF-8
     const msgBuffer = new TextEncoder().encode(message);
@@ -435,7 +455,6 @@ export default function Home() {
 
   return (
     <html lang="en" suppressHydrationWarning>
-    {/* <body className={theme}> */}
       { pages !== 'login' ?(
         <section id="navigation-section" className="flex justify-between items-center p-4 border-b shadow-sm">
           <NavigationMenu>
@@ -764,7 +783,6 @@ export default function Home() {
             </div>
           </section>
       ) : null }
-      {/* </body> */}
     </html>
   );
 }
