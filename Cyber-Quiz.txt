@@ -1,5 +1,0 @@
-- présentation le SI
-- GLPI : Ticket créer / consulter le retour
-- bonnes pratique
-- Windows P ( dupliquer / étendre ) - liste donné par julien
-- Fermer sa session
