@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `leçon_cyber_secu`
+-- Database: `DefiCyber`
 --
 
 -- --------------------------------------------------------
@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS `DefiCyber`;
 
 CREATE DATABASE IF NOT EXISTS `DefiCyber`;
+
+USE `DefiCyber`;
 
 --
 -- Table structure for table `User`
