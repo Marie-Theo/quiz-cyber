@@ -1,0 +1,84 @@
+
+<section class="login/register containers">
+    <div>
+        <div class="options_connexion">
+            <button>Se connecter</button>
+            <button>Créer un compte</button>
+        </div>
+        <form action="LoginUser.php" method="post">
+            <div class="item">
+                <label for="username">Pseudonyme:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="item">
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button class="item" type="submit">Login</button>
+        </form>
+        <form action="RegisterUser.php" method="post">
+            <div class="item">
+                <label for="username">Pseudonyme:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="item">
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="item">
+                <label for="password">Verification de mot de passe:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button class="item" type="submit">Créer un compte</button>
+        </form>
+    </div>
+</section>
+
+<style>
+    .containers {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+    form {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr;
+        width: 200px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 20px;
+    }
+    form .item {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr;
+        margin-top: 10px;
+        width: 200px;
+    }
+    form .item input {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding-bottom: 20px;
+        height: 25px;
+    }
+    form button {
+        background-color: #222;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    form button:hover {
+        background-color: #252525;
+    }
+    .options_connexion {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 20px;
+    }
+</style>
