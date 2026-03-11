@@ -82,11 +82,11 @@ insert into `Roles` (`tag`, `description`, `Personnalisation`, `Administration`,
 DROP TABLE IF EXISTS `Score`;
 CREATE TABLE IF NOT EXISTS `Score` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NOT NULL,
+  `idUser` int NOT NULL,
   `Score` int NOT NULL,
   `Temps` int NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`id_user`) REFERENCES `user`(`id`)
+  FOREIGN KEY (`idUser`) REFERENCES `User`(`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='tableaux de score des utilisateurs';
 
 -- --------------------------------------------------------
@@ -116,9 +116,9 @@ CREATE TABLE IF NOT EXISTS `Ordre` (
   `idCatégorie` int NOT NULL,
   `ordre` int NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`idQuestion`) REFERENCES `question`(`id`),
+  FOREIGN KEY (`idQuestion`) REFERENCES `Question`(`id`),
   FOREIGN KEY (`idDiapo`) REFERENCES `Diapo`(`id`),
-  FOREIGN KEY (`idCatégorie`) REFERENCES `catégorie`(`id`),
+  FOREIGN KEY (`idCatégorie`) REFERENCES `Catégorie`(`id`),
   UNIQUE KEY `Ordre` (`ordre`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -212,10 +212,10 @@ CREATE TABLE IF NOT EXISTS `Reponse` (
 DROP TABLE IF EXISTS `Statistiques`;
 CREATE TABLE IF NOT EXISTS `Statistiques` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `T_Moyen` int DEFAULT 0,,
-  `T_Min` int DEFAULT 0,,
-  `T_Max` int DEFAULT 0,,
-  `NBonneRéponse` int DEFAULT 0,,
+  `T_Moyen` int DEFAULT 0,
+  `T_Min` int DEFAULT 0,
+  `T_Max` int DEFAULT 0,
+  `NBonneRéponse` int DEFAULT 0,
   `NRéponse` int DEFAULT 0,
   `idQuestion` int NOT NULL,
   PRIMARY KEY (`id`),
