@@ -6,35 +6,49 @@
             <button>Créer un compte</button>
         </div>
         <form action="LoginUser.php" method="post">
+            <h2 class="item" style="margin-bottom: 10px;">
+                Connexion :
+            </h2>
+            <hr style="width: 45%; margin: auto;">
             <div class="item">
-                <label for="username">Pseudonyme:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="login-username">Pseudonyme:</label>
+                <input type="text" id="login-username" name="username" required>
             </div>
             <div class="item">
-                <label for="password">Mot de passe:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="login-password">Mot de passe:</label>
+                <input type="password" id="login-password" name="password" required>
             </div>
-            <button class="item" type="submit">Login</button>
+            <button class="item default-button" type="submit">Login</button>
         </form>
         <form action="RegisterUser.php" method="post">
+            <h2 class="item" style="margin-bottom: 10px;">
+                Création de compte :
+            </h2>
+            <hr style="width: 45%; margin: auto;">
             <div class="item">
-                <label for="username">Pseudonyme:</label>
-                <input type="text" id="username" name="username" required>
+                <label for="register-username">Pseudonyme:</label>
+                <input type="text" id="register-username" name="username" required>
             </div>
             <div class="item">
-                <label for="password">Mot de passe:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="register-password">Mot de passe:</label>
+                <input type="password" id="register-password" name="password" required>
             </div>
             <div class="item">
-                <label for="password">Verification de mot de passe:</label>
-                <input type="password" id="password" name="password" required>
+                <label for="register-confirm-password">Verification de mot de passe:</label>
+                <input type="password" id="register-confirm-password" name="confirm_password" required>
             </div>
-            <button class="item" type="submit">Créer un compte</button>
+            <button class="item default-button" type="submit">Créer un compte</button>
         </form>
     </div>
 </section>
 
 <style>
+    button {
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
     .containers {
         display: grid;
         justify-content: center;
@@ -45,28 +59,28 @@
         display: grid;
         align-items: center;
         grid-template-columns: 1fr;
-        width: 200px;
-        border: 1px solid #ddd;
+        width: 225px;
+        border: 1px solid #e5e5e5;
+        border-width: 1px;
         border-radius: 10px;
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 40px;
+        padding-right: 40px;
         padding-bottom: 20px;
     }
-    form .item {
+    .item {
         display: grid;
-        align-items: center;
         grid-template-columns: 1fr;
         margin-top: 10px;
-        width: 200px;
+        width: 95%;
     }
-    form .item input {
+    .item input {
         border: 1px solid #ddd;
         border-radius: 5px;
-        padding-bottom: 20px;
-        height: 25px;
+        height: 30px;
+        padding-left: 10px;
     }
-    form button {
-        background-color: #222;
+    .default-button {
+        background-color: #111;
         color: white;
         padding: 10px 20px;
         border: none;
@@ -74,11 +88,11 @@
         cursor: pointer;
     }
     form button:hover {
-        background-color: #252525;
+        background-color: #333;
     }
     .options_connexion {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 </style>
