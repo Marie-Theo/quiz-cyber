@@ -6,48 +6,54 @@
             <button>Créer un compte</button>
         </div>
         <form action="LoginUser.php" method="post">
-            <h2 class="item" style="margin-bottom: 10px;">
-                Connexion :
-            </h2>
-            <hr style="width: 45%; margin: auto;">
-            <div class="item">
-                <label for="login-username">Pseudonyme:</label>
-                <input type="text" id="login-username" name="username" required>
-            </div>
-            <div class="item">
-                <label for="login-password">Mot de passe:</label>
-                <input type="password" id="login-password" name="password" required>
-            </div>
-            <button class="item default-button" type="submit">Login</button>
+            <fieldset class="item">
+                <legend>Connexion</legend>
+                <hr style="width: 45%; margin: auto;">
+                <div class="item">
+                    <label for="login-username">Pseudonyme:</label>
+                    <input type="text" id="login-username" name="username" required>
+                </div>
+                <div class="item">
+                    <label for="login-password">Mot de passe:</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button class="item default-button" type="submit">Login</button>
+            </fieldset>
         </form>
         <form action="RegisterUser.php" method="post">
-            <h2 class="item" style="margin-bottom: 10px;">
-                Création de compte :
-            </h2>
-            <hr style="width: 45%; margin: auto;">
-            <div class="item">
-                <label for="register-username">Pseudonyme:</label>
-                <input type="text" id="register-username" name="username" required>
-            </div>
-            <div class="item">
-                <label for="register-password">Mot de passe:</label>
-                <input type="password" id="register-password" name="password" required>
-            </div>
-            <div class="item">
-                <label for="register-confirm-password">Verification de mot de passe:</label>
-                <input type="password" id="register-confirm-password" name="confirm_password" required>
-            </div>
-            <button class="item default-button" type="submit">Créer un compte</button>
+            <fieldset class="item">
+                <legend>Création de compte</legend>
+                <hr style="width: 45%; margin: auto;">
+                <div class="item">
+                    <label for="register-username">Pseudonyme:</label>
+                    <input type="text" id="register-username" name="username" required>
+                </div>
+                <div class="item">
+                    <label for="register-password">Mot de passe:</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                <div class="item">
+                    <label for="register-confirm-password">Verification de mot de passe:</label>
+                    <input type="password" id="register-confirm-password" name="confirm_password" required>
+                </div>
+                <button class="item default-button" type="submit">Créer un compte</button>
+            </fieldset>
         </form>
     </div>
 </section>
 
 <style>
-    button {
-        background-color: transparent;
+    /* style de la section de connexion et d'inscription  */
+    *{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    fieldset {
         border: none;
-        font-size: 16px;
-        cursor: pointer;
+    }
+    legend {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 5px;
     }
     .containers {
         display: grid;
@@ -55,29 +61,47 @@
         align-items: center;
         height: 90vh;
     }
+    label {
+        margin-bottom: 5px;
+    }
     form {
         display: grid;
-        align-items: center;
-        grid-template-columns: 1fr;
-        width: 225px;
         border: 1px solid #e5e5e5;
         border-width: 1px;
-        border-radius: 10px;
-        padding-left: 40px;
-        padding-right: 40px;
-        padding-bottom: 20px;
+        border-radius: 15px;
+        width: 250px;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-bottom: 15px;
     }
     .item {
         display: grid;
         grid-template-columns: 1fr;
         margin-top: 10px;
-        width: 95%;
     }
+</style>
+<style>
+    /* style des champs de saisie  */
     .item input {
         border: 1px solid #ddd;
         border-radius: 5px;
         height: 30px;
+        width: 100%;
         padding-left: 10px;
+    }
+    input:focus {
+        outline: 4px solid #ddd;
+        border-color: #999;
+    }
+</style>
+<style>
+    /* style des boutons  */
+    button {
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 5px 10px;
     }
     .default-button {
         background-color: #111;
@@ -87,12 +111,20 @@
         border-radius: 5px;
         cursor: pointer;
     }
-    form button:hover {
-        background-color: #333;
+    .default-button:hover {
+        background-color: #444;
     }
     .options_connexion {
         display: flex;
         justify-content: space-around;
+        border: 1px solid #e5e5e5;
+        border-width: 1px;
+        border-radius: 15px;
         margin-bottom: 10px;
+        padding: 8px 0;
+    }
+    .options_connexion button:hover {
+        background-color: #f0f0f0;
+        border-radius: 8px;
     }
 </style>
