@@ -25,7 +25,7 @@ class ConnexionBDD {
             // set the PDO error mode to exception
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            echo "Connection failed: " . $e->getMessage() . "";
+            echo "<div style='position: static;border: 3px solid #73AD21;'>Connection failed: " . $e->getMessage() . "</div>";
         }
     }
 }
