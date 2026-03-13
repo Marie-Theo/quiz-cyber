@@ -2,9 +2,3 @@
 
 # env files (can opt-in for committing if needed)
 .env*
-/vendor/
-
-/conmposer/
-/composer.json
-/composer.lock
-/composer.phar*
