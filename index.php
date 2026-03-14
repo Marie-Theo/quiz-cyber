@@ -1,5 +1,5 @@
 <?php
-require_once './loginAndRegister/ConnexionBDD.php';
+require_once './ConnexionBDD.php';
 
 $bdd = new ConnexionBDD();
 
