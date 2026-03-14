@@ -1,6 +1,6 @@
 <?php
-require_once 'ConnexionBDD.php';
+require_once './loginAndRegister/ConnexionBDD.php';
 
 $bdd = new ConnexionBDD();
 
-include_once 'form.connexion.html';
+include_once './loginAndRegister/form.connexion.html';
