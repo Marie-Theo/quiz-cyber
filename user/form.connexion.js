@@ -6,7 +6,7 @@ var form_inscription = document.querySelector(".form-inscription");
 function changeSelect(inputToSelect) {
     if (inputToSelect == "login") {
         resetOutline(inputToSelect+"-username", "pseudonyme-invalide");
-        resetOutline(inputToSelect+"-username", "information-invalide");
+        // resetOutline(inputToSelect+"-username", "information-invalide");
         // Mettre à jour les classes des boutons pour refléter la sélection
         button_selected.classList.remove("unselected");
         button_selected.classList.add("selected");
@@ -22,7 +22,7 @@ function changeSelect(inputToSelect) {
         form_inscription.style.display  = "none";
     } else if (inputToSelect == 'register') {
         resetOutline(inputToSelect+"-username", "pseudonyme-invalide");
-        resetOutline(inputToSelect+"-username", "information-invalide");
+        // resetOutline(inputToSelect+"-username", "information-invalide");
         resetOutline(inputToSelect+"-password", "is-invalide");
         resetOutline(inputToSelect+"-confirm-password", "information-invalide");
         // Mettre à jour les classes des boutons pour refléter la sélection

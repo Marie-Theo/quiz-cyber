@@ -5,4 +5,8 @@ session_start();
 $bdd = new ConnexionBDD();
 $_SESSION['BDD'] = '';
 
-include_once './user/form.connexion.html';
+if ( !isset($_SESSION['id']) ) {
+    include_once './user/form.connexion.php';
+}
+
+session_destroy();

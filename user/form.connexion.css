@@ -64,6 +64,11 @@ input:focus {
     font-size: 14px;
     margin: 0;
 }
+.erreur_submit {
+    color: rgb(209, 36, 47);
+    font-size: 14px;
+    margin: 0;
+}
 
 
 /* style des boutons  */
@@ -86,6 +91,7 @@ button {
     background-color: #393939;
 }
 .options_connexion {
+    background-color: #fff;
     display: flex;
     gap: 20px;
     justify-content: space-around;

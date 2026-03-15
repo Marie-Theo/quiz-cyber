@@ -12,13 +12,22 @@
                 <label for="login-username">Pseudonyme:</label>
                 <input type="text" id="login-username" name="login-username" onblur="validateUsername('login-username')" onclick="resetOutline('login-username', 'pseudonyme-invalide')" required>
                 <div class="erreur"><p class="login-username-pseudonyme-invalide"><img src="/static/icones/alert-fill-12.svg" alt="image d'alerte"> Le pseudonyme doit contenir entre 3 et 20 caractères.</p></div>
-                <div class="erreur"><p class="login-username-information-invalide"><img src="/static/icones/alert-fill-12.svg" alt="image d'alerte"> Information de connexion invalide</p></div>
+                <?php
+                    if ( isset($_SESSION['Information_Incorrect']) ) {
+                        echo '<div class="erreur_submit"><p class="login-username-information-invalide"><img src="/static/icones/alert-fill-12.svg" alt="image d\'alerte"> Information de connexion invalide</p></div>';
+                    }
+                ?>
             </div>
             <div class="item">
                 <label for="login-password">Mot de passe:</label>
                 <input type="password" id="login-password" name="login-password" placeholder="••••••••" required>
             </div>
             <button class="item default-button" type="submit" onclick="validateUsername('login-username')">Login</button>
+            <?php
+                if ( isset($_SESSION['Erreur_Inattendue']) ) {
+                    echo '<div class="erreur_submit"><p class="erreur_inconnu"><img src="/static/icones/alert-fill-12.svg" alt="image d\'alerte">Une erreur inattendue est survenue merci de contacter un administrateur</p></div>' . $_SESSION['Erreur_Inattendue'];
+                }
+            ?>
         </fieldset>
     </form>
     <form action="/user/Register.php" method="post" class="form-inscription">
