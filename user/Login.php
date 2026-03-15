@@ -32,7 +32,7 @@ class Login extends Compte {
 
     private function requestsHash_MDP(){
         try {
-            $stmt = $this->pdo->prepare("SELECT 'Hash_MDP' FROM user WHERE Pseudo = :pseudo LIMIT 1");
+            $stmt = $this->pdo->prepare("SELECT 'Hash_MDP' FROM User WHERE Pseudo = :pseudo LIMIT 1");
             
             $stmt->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
             
