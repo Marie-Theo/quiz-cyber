@@ -2,10 +2,9 @@
 
 use Dotenv\Dotenv;
 
-require_once '../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-$dotenv = Dotenv::createImmutable(  __DIR__  );
-$dotenv->load();
+
 class ConnexionBDD {
 
     private string $host = "localhost";
@@ -16,6 +15,9 @@ class ConnexionBDD {
 
     function __construct() {
 
+        $dotenv = Dotenv::createImmutable(  __DIR__  );
+        $dotenv->load();
+
         $this->dbname = $_ENV['DBNAME'];
         $this->username = $_ENV['USER_DATABASES'];
         $this->usermdp = $_ENV['MDP_DATABASES'];
@@ -25,7 +27,7 @@ class ConnexionBDD {
             // set the PDO error mode to exception
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            echo "<div style='position: fixed;color: #f00;'>Connection failed:<br>" . $e->getMessage() . "</div>";
+            echo "<div style='position: relative;color: #f00;'>Connection failed:<br>" . $e->getMessage() . "</div>";
         }
     }
 }

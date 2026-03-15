@@ -1,0 +1,48 @@
+<section class="login/register containers">
+    <link rel="stylesheet" href="/user/form.connexion.css">
+    <div class="options_connexion">
+        <button class="selected" onclick="changeSelect('login')">Se connecter</button>
+        <button class="unselected" onclick="changeSelect('register')">Créer un compte</button>
+    </div>
+    <form action="/user/Login.php" method="post" class="form-connexion">
+        <fieldset class="item">
+            <legend>Connexion</legend>
+            <hr style="width: 45%; margin: auto;">
+            <div class="item">
+                <label for="login-username">Pseudonyme:</label>
+                <input type="text" id="login-username" name="login-username" onblur="validateUsername('login-username')" onclick="resetOutline('login-username', 'pseudonyme-invalide')" required>
+                <div class="erreur"><p class="login-username-pseudonyme-invalide"><img src="/static/icones/alert-fill-12.svg" alt="image d'alerte"> Le pseudonyme doit contenir entre 3 et 20 caractères.</p></div>
+                <div class="erreur"><p class="login-username-information-invalide"><img src="/static/icones/alert-fill-12.svg" alt="image d'alerte"> Information de connexion invalide</p></div>
+            </div>
+            <div class="item">
+                <label for="login-password">Mot de passe:</label>
+                <input type="password" id="login-password" name="login-password" placeholder="••••••••" required>
+            </div>
+            <button class="item default-button" type="submit" onclick="validateUsername('login-username')">Login</button>
+        </fieldset>
+    </form>
+    <form action="/user/Register.php" method="post" class="form-inscription">
+        <fieldset class="item">
+            <legend>Création de compte</legend>
+            <hr style="width: 45%; margin: auto;">
+            <div class="item">
+                <label for="register-username">Pseudonyme:</label>
+                <input type="text" id="register-username" name="register-username" onblur="validateUsername('register-username')" onclick="resetOutline('register-username', 'pseudonyme-invalide')" required>
+                <div class="erreur"><p class="register-username-pseudonyme-invalide"><img src="/static/icones/alert-fill-12.svg" alt="image d'alerte"> Le pseudonyme doit contenir entre 3 et 20 caractères.</p></div>
+                <div class="erreur"><p class="register-username-information-invalide"><img src="/static/icones/alert-fill-12.svg" alt="image d'alerte"> Information de connexion invalide</p></div>
+            </div>
+            <div class="item">
+                <label for="register-password">Mot de passe:</label>
+                <input type="password" id="register-password" name="register-password" placeholder="••••••••" onblur="validatePassword('register-password')" onclick="resetOutline('register-password', 'is-invalide')" required>
+                <div class="erreur"><p class="register-password-is-invalide"><img src="/static/icones/alert-fill-12.svg" alt="image d'alerte"> Le mot de passe doit contenir entre 6 et 100 caractères.</p></div>
+            </div>
+            <div class="item">
+                <label for="register-confirm-password">Verification de mot de passe:</label>
+                <input type="password" id="register-confirm-password" name="register-confirm-password" placeholder="••••••••" onblur="validateConfirmPassword('register-confirm-password')" onclick="resetOutline('register-confirm-password', 'information-invalide')"  required>
+                <div class="erreur"><p class="register-confirm-password-information-invalide"><img src="/static/icones/alert-fill-12.svg" alt="image d'alerte"> Les mots de passe ne correspondent pas.</p></div>
+            </div>
+            <button class="item default-button" type="submit" onclick="validateUsername('register-username'); validatePassword('register-password'); validateConfirmPassword('register-confirm-password')">Créer un compte</button>
+        </fieldset>
+    </form>
+</section>
+<script src="/user/form.connexion.js"></script>
