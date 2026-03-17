@@ -23,15 +23,15 @@ class Register extends Compte {
 
         echo $this->result;
 
-        if ( $this->result !== [] ){
+        // if ( $this->result !== [] ){
 
-            echo "<div style='position: relative;color: #f00;'>Utilisateur introuvable</div>";
-            $_SESSION["Information_Incorrect"] = "Nom d'utilisateur déjà utilisé";
-            // header('Location: /index.php');
-        }
-        echo "<div style='position: relative;color: #ff7700;'>Nom d'utilisateur libre</div>";
+        //     echo "<div style='position: relative;color: #f00;'>Utilisateur introuvable</div>";
+        //     $_SESSION["Information_Incorrect"] = "Nom d'utilisateur déjà utilisé";
+        //     // header('Location: /index.php');
+        // }
+        // echo "<div style='position: relative;color: #ff7700;'>Nom d'utilisateur libre</div>";
 
-        $this->InsertNewUser($pseudo=$this->pseudo, $mdp=$this->mdp);
+        // $this->InsertNewUser($pseudo=$this->pseudo, $mdp=$this->mdp);
     }
 
     private function requestsUserExist(){
