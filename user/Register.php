@@ -1,14 +1,9 @@
 <?php
 
-// require_once __DIR__ . '/../ConnexionBDD.php';
-// require_once 'Compte.php';
+require_once __DIR__ . '/../ConnexionBDD.php';
+require_once 'Compte.php';
 
-// session_start();
-
-$pseudo = $_POST['register-username'];
-$mdp = $_POST['register-password'];
-
-echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $pseudo . "<br>MDP :" . $mdp . "</div>";
+session_start();
 
 // class Register extends Compte {
 
@@ -56,5 +51,10 @@ echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $pseudo . "<br
 //         }
 //     }
 // }
+
+$pseudo = $_POST['register-username'];
+$mdp = $_POST['register-password'];
+
+echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $pseudo . "<br>MDP :" . $mdp . "</div>";
 
 // new Register();
