@@ -34,7 +34,7 @@ class Login extends Compte {
             header('Location: /index.php');
         }
         else {
-            echo "<div style='position: relative;color: #f00;'>password doesn't matches</div>";
+            // echo "<div style='position: relative;color: #f00;'>password doesn't matches</div>";
             $_SESSION["Information_Incorrect"] = "PassWord False";
             header('Location: /index.php');
         }
@@ -51,7 +51,7 @@ class Login extends Compte {
             $this->result = $stmt->fetchAll();
             
         } catch (PDOException $e) {
-            echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
+            // echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
             $_SESSION["Erreur_Inattendue"] = "Requests failed:<br>" . $e->getMessage();
             header('Location: /from.connexion.php');
         }

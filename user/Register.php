@@ -17,22 +17,23 @@ class Register extends Compte {
         $this->pseudo = $_POST['register-username'];
         $this->mdp = $this->convertStrHash($_POST['register-password']);
 
-        echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $this->pseudo . "<br>MDP :" . $this->mdp . "</div>";
+        // echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $this->pseudo . "<br>MDP :" . $this->mdp . "</div>";
 
         $this->requestsUserExist();
 
-        echo $this->result;
-        var_dump($this->result);
-
         if ( $this->result !== [] ){
-            echo "2<div style='position: relative;color: #f00;'>Utilisateur introuvable</div>";
+            // echo "2<div style='position: relative;color: #f00;'>Utilisateur introuvable</div>";
             $_SESSION["Information_Incorrect"] = "Nom d'utilisateur déjà utilisé";
             // header('Location: /index.php');
+        } else {
+            // echo "3<div style='position: relative;color: #ff7700;'>Nom d'utilisateur libre</div>";
+
+            $this->InsertNewUser($pseudo=$this->pseudo, $mdp=$this->mdp);
+
+            $this->getAllAboutUser($this->pseudo);
+            header('Location: /index.php');
         }
 
-        echo "3<div style='position: relative;color: #ff7700;'>Nom d'utilisateur libre</div>";
-
-        $this->InsertNewUser($pseudo=$this->pseudo, $mdp=$this->mdp);
     }
 
     private function requestsUserExist(){
@@ -46,7 +47,7 @@ class Register extends Compte {
             $this->result = $stmt->fetchAll();
             
         } catch (PDOException $e) {
-            echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
+            // echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
             $_SESSION["Erreur_Inattendue"] = "Requests failed:<br>" . $e->getMessage();
             // header('Location: /from.connexion.php');
         }
