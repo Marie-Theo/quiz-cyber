@@ -1,60 +1,61 @@
 <?php
 
 require_once __DIR__ . '/../ConnexionBDD.php';
+echo "require_one 'Compte.php'";
 require_once 'Compte.php';
 
 session_start();
 
-// class Register extends Compte {
+class Register extends Compte {
 
-//     protected PDO $pdo;
-//     protected array $result;
+    protected PDO $pdo;
+    protected array $result;
 
-//     public function __construct() {
-//         $bdd = new ConnexionBDD();
-//         $this->pdo = $bdd->conn;
+    public function __construct() {
+        $bdd = new ConnexionBDD();
+        $this->pdo = $bdd->conn;
 
-//         $this->pseudo = $_POST['register-username'];
-//         $this->mdp = $this->convertStrHash($_POST['register-password']);
+        $this->pseudo = $_POST['register-username'];
+        $this->mdp = $this->convertStrHash($_POST['register-password']);
 
-//         echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $this->pseudo . "<br>MDP :" . $this->mdp . "</div>";
+        echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $this->pseudo . "<br>MDP :" . $this->mdp . "</div>";
 
-//         $this->requestsUserExist();
+        $this->requestsUserExist();
 
-//         echo $this->result;
+        echo $this->result;
 
-//         // if ( $this->result !== [] ){
+        // if ( $this->result !== [] ){
 
-//         //     echo "<div style='position: relative;color: #f00;'>Utilisateur introuvable</div>";
-//         //     $_SESSION["Information_Incorrect"] = "Nom d'utilisateur déjà utilisé";
-//         //     // header('Location: /index.php');
-//         // }
-//         // echo "<div style='position: relative;color: #ff7700;'>Nom d'utilisateur libre</div>";
+        //     echo "<div style='position: relative;color: #f00;'>Utilisateur introuvable</div>";
+        //     $_SESSION["Information_Incorrect"] = "Nom d'utilisateur déjà utilisé";
+        //     // header('Location: /index.php');
+        // }
+        // echo "<div style='position: relative;color: #ff7700;'>Nom d'utilisateur libre</div>";
 
-//         // $this->InsertNewUser($pseudo=$this->pseudo, $mdp=$this->mdp);
-//     }
+        // $this->InsertNewUser($pseudo=$this->pseudo, $mdp=$this->mdp);
+    }
 
-//     private function requestsUserExist(){
-//         try {
-//             $stmt = $this->pdo->prepare("SELECT id FROM User WHERE Pseudo = :pseudo LIMIT 1");
+    private function requestsUserExist(){
+        try {
+            $stmt = $this->pdo->prepare("SELECT id FROM User WHERE Pseudo = :pseudo LIMIT 1");
             
-//             $stmt->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
+            $stmt->bindValue(':pseudo', $this->pseudo, PDO::PARAM_STR);
             
-//             $stmt->execute();
+            $stmt->execute();
 
-//             $this->result = $stmt->fetchAll();
+            $this->result = $stmt->fetchAll();
             
-//         } catch (PDOException $e) {
-//             echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
-//             $_SESSION["Erreur_Inattendue"] = "Requests failed:<br>" . $e->getMessage();
-//             // header('Location: /from.connexion.php');
-//         }
-//     }
-// }
+        } catch (PDOException $e) {
+            echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
+            $_SESSION["Erreur_Inattendue"] = "Requests failed:<br>" . $e->getMessage();
+            // header('Location: /from.connexion.php');
+        }
+    }
+}
 
 $pseudo = $_POST['register-username'];
 $mdp = $_POST['register-password'];
 
 echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $pseudo . "<br>MDP :" . $mdp . "</div>";
 
-// new Register();
+new Register();
