@@ -22,8 +22,9 @@ class Register extends Compte {
         $this->requestsUserExist();
 
         echo $this->result;
+        var_dump($this->result);
 
-        if ( $this->result !== [] ){
+        if ( $this->result[0] === [] ){
 
             echo "<div style='position: relative;color: #f00;'>Utilisateur introuvable</div>";
             $_SESSION["Information_Incorrect"] = "Nom d'utilisateur déjà utilisé";
