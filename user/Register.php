@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../ConnexionBDD.php';
 echo "require_one 'Compte.php'";
-// require_once 'Compte.php';
+include_once 'Compte.php';
 
 $pseudo = $_POST['register-username'];
 $mdp = $_POST['register-password'];
