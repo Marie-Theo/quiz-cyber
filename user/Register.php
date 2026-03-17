@@ -14,14 +14,14 @@ class Register extends Compte {
         $bdd = new ConnexionBDD();
         $this->pdo = $bdd->conn;
 
-        $this->pseudo = $_POST['login-username'];
-        $this->mdp = $this->convertStrHash($_POST['login-password']);
+        $this->pseudo = $_POST['register-username'];
+        $this->mdp = $this->convertStrHash($_POST['register-password']);
 
         echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $this->pseudo . "<br>MDP :" . $this->mdp . "</div>";
 
         $this->requestsUserExist();
 
-        echo $this->result ;
+        echo $this->result;
 
         if ( $this->result !== [] ){
 
