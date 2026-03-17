@@ -52,4 +52,9 @@ class Register extends Compte {
     }
 }
 
-new Register();
+$pseudo = $_POST['register-username'];
+$mdp = $_POST['register-password'];
+
+echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $pseudo . "<br>MDP :" . $mdp . "</div>";
+
+// new Register();

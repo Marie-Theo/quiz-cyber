@@ -94,7 +94,7 @@ abstract class Compte {
     }
     public InsertNewUser($pseudo, $mdp, $mail = null) {
         try {
-            $stmt = $this->pdo->prepare("INSERT INTO User( Pseudo, Hash_MDP, Mail ) VALUES ( :pseudo , :mdp , :mail )");
+            $stmt = $this->pdo->prepare("INSERT INTO User( Pseudo, Hash_MDP, Mail ) VALUES( :pseudo , :mdp , :mail )");
             
             $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
             $stmt->bindValue(':mdp', $mdp, PDO::PARAM_STR);
