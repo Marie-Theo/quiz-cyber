@@ -24,7 +24,7 @@ class Register extends Compte {
         if ( $this->result !== [] ){
             // echo "2<div style='position: relative;color: #f00;'>Utilisateur introuvable</div>";
             $_SESSION["Information_Incorrect"] = "Nom d'utilisateur déjà utilisé";
-            // header('Location: /index.php');
+            header('Location: /index.php');
         } else {
             // echo "3<div style='position: relative;color: #ff7700;'>Nom d'utilisateur libre</div>";
 
@@ -49,7 +49,7 @@ class Register extends Compte {
         } catch (PDOException $e) {
             // echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
             $_SESSION["Erreur_Inattendue"] = "Requests failed:<br>" . $e->getMessage();
-            // header('Location: /from.connexion.php');
+            header('Location: /from.connexion.php');
         }
     }
 }
