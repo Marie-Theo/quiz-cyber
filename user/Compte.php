@@ -100,7 +100,7 @@ abstract class Compte {
             $stmt->bindParam(':pseudo', $pseudo);
             $stmt->bindParam(':mdp', $mdp);
 
-            $stmt->execute();
+            // $stmt->execute();
         } catch (PDOException $e) {
             echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
             $_SESSION["Erreur_Inattendue"] = "Requests failed:<br>" . $e->getMessage();
