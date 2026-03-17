@@ -92,19 +92,18 @@ abstract class Compte {
 
         return $this->mdp;
     }
-    // public InsertNewUser($pseudo, $mdp, $mail = null) {
-    //     try {
-    //         $stmt = $this->pdo->prepare("INSERT INTO User( Pseudo, Hash_MDP, Mail ) VALUES( :pseudo , :mdp , :mail )");
+    public InsertNewUser($pseudo, $mdp) {
+        try {
+            $stmt = $this->pdo->prepare("INSERT INTO User( Pseudo, Hash_MDP ) VALUES( :pseudo , :mdp )");
             
-    //         $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
-    //         $stmt->bindValue(':mdp', $mdp, PDO::PARAM_STR);
-    //         $stmt->bindValue(':mail', $mail, PDO::PARAM_STR);
+            $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+            $stmt->bindValue(':mdp', $mdp, PDO::PARAM_STR);
             
-    //         $stmt->execute();
-    //     } catch (PDOException $e) {
-    //         echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
-    //         $_SESSION["Erreur_Inattendue"] = "Requests failed:<br>" . $e->getMessage();
-    //         // header('Location: /from.connexion.php');
-    //     }
-    // }
+            $stmt->execute();
+        } catch (PDOException $e) {
+            echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
+            $_SESSION["Erreur_Inattendue"] = "Requests failed:<br>" . $e->getMessage();
+            // header('Location: /from.connexion.php');
+        }
+    }
 }
