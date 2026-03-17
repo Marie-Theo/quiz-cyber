@@ -1,13 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../ConnexionBDD.php';
-echo "require_one 'Compte.php'";
-include_once 'Compte.php';
-
-$pseudo = $_POST['register-username'];
-$mdp = $_POST['register-password'];
-
-echo "<div style='position: relative;color: #ff7700;'>Pseudo :" . $pseudo . "<br>MDP :" . $mdp . "</div>";
+require_once 'Compte.php';
 
 session_start();
 
