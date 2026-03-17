@@ -95,10 +95,10 @@ abstract class Compte {
 
     public function InsertNewUser( string $pseudo, string $mdp) {
         try {
-            $stmt = $this->pdo->prepare("INSERT INTO User (Pseudo, Hash_MDP) VALUES ( :pseudo , :mdp )");
+            $stmt = $this->pdo->prepare("INSERT INTO User ( Pseudo, Hash_MDP ) VALUES ( :pseudo , :mdp )");
             
             $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
-            $stmt->bindValue('::mdp', $mdp, PDO::PARAM_STR);
+            $stmt->bindValue(':mdp', $mdp, PDO::PARAM_STR);
 
             $stmt->execute();
         } catch (PDOException $e) {
