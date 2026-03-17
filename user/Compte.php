@@ -46,7 +46,7 @@ abstract class Compte {
         $this->email = $email;
     }
 
-    protected function getAllAboutUser($pseudo) {
+    protected function getAllAboutUser(string $pseudo) {
         try {
             $stmt = $this->pdo->prepare("SELECT id, Mail FROM User WHERE Pseudo = :pseudo LIMIT 1");
             
@@ -93,14 +93,14 @@ abstract class Compte {
         return $this->mdp;
     }
 
-    public InsertNewUser($pseudo, $mdp) {
+    public function InsertNewUser( string $pseudo, string $mdp) {
         try {
             $stmt = $this->pdo->prepare("INSERT INTO User (Pseudo, Hash_MDP) VALUES ( :pseudo , :mdp )");
             
-            $stmt->bindParam(':pseudo', $pseudo);
-            $stmt->bindParam(':mdp', $mdp);
+            $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+            $stmt->bindValue('::mdp', $:mdp, PDO::PARAM_STR);
 
-            // $stmt->execute();
+            $stmt->execute();
         } catch (PDOException $e) {
             echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
             $_SESSION["Erreur_Inattendue"] = "Requests failed:<br>" . $e->getMessage();
