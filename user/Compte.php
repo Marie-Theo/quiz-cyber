@@ -92,13 +92,14 @@ abstract class Compte {
 
         return $this->mdp;
     }
+
     public InsertNewUser($pseudo, $mdp) {
         try {
-            $stmt = $this->pdo->prepare("INSERT INTO User( Pseudo, Hash_MDP ) VALUES( :pseudo , :mdp )");
+            $stmt = $this->pdo->prepare("INSERT INTO User (Pseudo, Hash_MDP) VALUES ( :pseudo , :mdp )");
             
-            $stmt->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
-            $stmt->bindValue(':mdp', $mdp, PDO::PARAM_STR);
-            
+            $stmt->bindParam(':pseudo', $pseudo);
+            $stmt->bindParam(':mdp', $mdp);
+
             $stmt->execute();
         } catch (PDOException $e) {
             echo "<div style='position: relative;color: #f00;'>Requests failed:<br>" . $e->getMessage() . "</div>";
